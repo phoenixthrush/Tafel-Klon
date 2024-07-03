@@ -91,6 +91,48 @@
             height: 100%;
         }
     </style>
+    <script>
+        window.onload = function () {
+            const canvas = document.getElementById('canvas');
+            const ctx = canvas.getContext('2d');
+
+            // Adjust canvas size to match the viewport
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            ctx.strokeStyle = '#ffffff';
+            ctx.lineWidth = 3;
+            ctx.lineCap = 'round';
+            ctx.lineJoin = 'round';
+
+            let isDrawing = false;
+            let lastX = 0;
+            let lastY = 0;
+
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (!isDrawing) return;
+                ctx.beginPath();
+                ctx.moveTo(lastX, lastY);
+                ctx.lineTo(e.offsetX, e.offsetY);
+                ctx.stroke();
+                [lastX, lastY] = [e.offsetX, e.offsetY];
+            });
+
+            canvas.addEventListener('mouseup', () => isDrawing = false);
+            canvas.addEventListener('mouseout', () => isDrawing = false);
+
+            // Ensure the canvas resizes appropriately
+            window.addEventListener('resize', () => {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            });
+        };
+    </script>
 </head>
 
 <body>
@@ -262,37 +304,8 @@
                 <figcaption>Wählen</figcaption>
             </figure>
         </div>
-        </div>
+    </div>
     <canvas id="canvas"></canvas>
-        <script>
-            let canvas = document.getElementById('canvas');
-            let ctx = canvas.getContext('2d');
-            let isDrawing = false;
-            let lastX, lastY;
-
-            canvas.addEventListener('mousedown', (e) => {
-                isDrawing = true;
-                lastX = e.offsetX;
-                lastY = e.offsetY;
-            });
-
-            canvas.addEventListener('mousemove', (e) => {
-                if (isDrawing) {
-                    ctx.beginPath();
-                    ctx.moveTo(lastX, lastY);
-                    ctx.lineTo(e.offsetX, e.offsetY);
-                    ctx.strokeStyle = 'white';
-                    ctx.lineWidth = 2;
-                    ctx.stroke();
-                    lastX = e.offsetX;
-                    lastY = e.offsetY;
-                }
-            });
-
-            canvas.addEventListener('mouseup', () => {
-                isDrawing = false;
-            });
-        </script>
     </div>
 </body>
 
