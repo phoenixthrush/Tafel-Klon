@@ -13,6 +13,14 @@
             background-color: #3CB371;
             font-family: Arial, Helvetica, sans-serif;
             color: #4c4f69;
+            overflow: hidden;
+        }
+
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .container {
@@ -62,11 +70,25 @@
 
         figcaption {
             text-align: center;
+            font-size: 0.9em;
         }
 
         figure {
             padding: 0;
             margin: 0;
+            text-align: center;
+            width: 60px;
+            height: 54px;
+            padding-top: 13px;
+        }
+
+        canvas {
+            z-index: 500;
+            position: sticky;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
@@ -91,7 +113,7 @@
     <div class="container">
         <div class="box">
             <figure>
-                <svg enable-background="new 0 0 64 64" height="32" viewBox="0 0 64 64" width="64"
+                <svg enable-background="new 0 0 64 64" height="20" viewBox="0 0 64 64" width="20"
                     xmlns="http://www.w3.org/2000/svg">
                     <g fill="#40a02b">
                         <path
@@ -108,7 +130,7 @@
             </figure>
             <figure>
 
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor"
                     class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0z" />
@@ -118,7 +140,7 @@
                 <figcaption>Beenden</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#1e66f5" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#1e66f5" viewBox="0 0 16 16">
                     <path d="M2 2h2v2H2z" />
                     <path d="M6 0v6H0V0zM5 1H1v4h4zM4 12H2v2h2z" />
                     <path d="M6 10v6H0v-6zm-5 1v4h4v-4zm11-9h2v2h-2z" />
@@ -129,7 +151,7 @@
                 <figcaption>Teilen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="#df8e1d" viewBox="0 0 16 16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="#df8e1d" viewBox="0 0 16 16">
                     <path fill-rule="evenodd"
                         d="M2 2.5a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5V3a.5.5 0 0 0-.5-.5zM3 3H2v1h1z" />
                     <path
@@ -142,7 +164,7 @@
         </div>
         <div class="box">
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -150,7 +172,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -158,7 +180,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -166,7 +188,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -174,7 +196,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -182,7 +204,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -190,7 +212,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -198,31 +220,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
-                </svg>
-                <figcaption>Wählen</figcaption>
-            </figure>
-            <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
-                </svg>
-                <figcaption>Wählen</figcaption>
-            </figure>
-            <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
-                    viewBox="0 0 16 16">
-                    <path
-                        d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
-                </svg>
-                <figcaption>Wählen</figcaption>
-            </figure>
-            <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -232,7 +230,7 @@
         </div>
         <div class="box">
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -240,7 +238,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -248,7 +246,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -256,7 +254,7 @@
                 <figcaption>Wählen</figcaption>
             </figure>
             <figure>
-                <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-cursor"
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cursor"
                     viewBox="0 0 16 16">
                     <path
                         d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103zM2.25 8.184l3.897 1.67a.5.5 0 0 1 .262.263l1.67 3.897L12.743 3.52z" />
@@ -264,6 +262,37 @@
                 <figcaption>Wählen</figcaption>
             </figure>
         </div>
+        </div>
+    <canvas id="canvas"></canvas>
+        <script>
+            let canvas = document.getElementById('canvas');
+            let ctx = canvas.getContext('2d');
+            let isDrawing = false;
+            let lastX, lastY;
+
+            canvas.addEventListener('mousedown', (e) => {
+                isDrawing = true;
+                lastX = e.offsetX;
+                lastY = e.offsetY;
+            });
+
+            canvas.addEventListener('mousemove', (e) => {
+                if (isDrawing) {
+                    ctx.beginPath();
+                    ctx.moveTo(lastX, lastY);
+                    ctx.lineTo(e.offsetX, e.offsetY);
+                    ctx.strokeStyle = 'white';
+                    ctx.lineWidth = 2;
+                    ctx.stroke();
+                    lastX = e.offsetX;
+                    lastY = e.offsetY;
+                }
+            });
+
+            canvas.addEventListener('mouseup', () => {
+                isDrawing = false;
+            });
+        </script>
     </div>
 </body>
 
